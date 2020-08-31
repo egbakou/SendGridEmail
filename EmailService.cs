@@ -22,9 +22,10 @@ namespace SendGridEmailClient
 
             var msg = MailHelper.CreateSingleEmail(from, to, _subject, null, _htmlContent);
 
-            //var bytes = File.ReadAllBytes(_filePath);
+            //var bytes = ReadFile(_filePath);
+            var bytes = File.ReadAllBytes(_filePath);
 
-            var file = Convert.ToBase64String(ReadFile(_filePath));
+            var file = Convert.ToBase64String(bytes);
             msg.AddAttachment(_fileName, file);
             var response = await client.SendEmailAsync(msg);
             return response;
