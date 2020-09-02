@@ -1,2 +1,2 @@
 # SendGridEmail
-Send Email using SendGrid
+Send email in c# with attachment using SendGrid.
