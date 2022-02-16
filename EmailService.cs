@@ -8,13 +8,13 @@ namespace SendGridEmailClient
 {
     public static class EmailService
     {
-        private static string API_KEY = "KEY";
+        private readonly string _apiKey = "KEY";
 
 
         public static async Task<Response> SendEmailAsync(string _filePath, string _fileName, string _to, string _subject, string _htmlContent)
         {
 
-            var client = new SendGridClient(API_KEY);
+            var client = new SendGridClient(_apiKey);
 
             var from = new EmailAddress("email@email.com", "COMPANY NAME");
             var to = new EmailAddress(_to, _to);
